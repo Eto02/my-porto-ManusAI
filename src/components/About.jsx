@@ -10,10 +10,10 @@ const About = () => {
   });
 
   const stats = [
-    // { icon: Code, label: 'Projects Completed', value: '25+' },
-    // { icon: Coffee, label: 'Cups of Coffee', value: '1000+' },
-    // { icon: Heart, label: 'Happy Clients', value: '20+' },
-    // { icon: Zap, label: 'Years Experience', value: '6+' },
+    { icon: Code, label: 'Projects Completed', value: '20+' },
+    { icon: Coffee, label: 'Cups of Coffee', value: '1000+' },
+    { icon: Heart, label: 'Happy Clients', value: '15+' },
+    { icon: Zap, label: 'Years Experience', value: '6+' },
   ];
 
   const containerVariants = {
