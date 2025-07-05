@@ -13,7 +13,7 @@ const FloatingMenu = ({ activeSection, onSectionChange }) => {
     { id: 'skills', icon: Code, label: 'Skills' },
     { id: 'projects', icon: Briefcase, label: 'Projects' },
     { id: 'contact', icon: Mail, label: 'Contact' },
-    { id: 'cv', icon: FileText, label: 'CV', isExternal: true, url: '/cv' }
+    { id: 'cv', icon: FileText, label: 'CV', isExternal: true, url: 'https://cv.tahtafm.xyz/' }
   ];
 
   const scrollToSection = (sectionId) => {
