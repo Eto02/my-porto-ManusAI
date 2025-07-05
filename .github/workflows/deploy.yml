@@ -22,5 +22,10 @@ jobs:
           key: ${{ secrets.VPS_KEY }}
           script: |
             cd /home/tahtafm/apps/portofolio
-            git pull origin main
+            echo "==> Set git safe directory"
+            git config --global --add safe.directory /home/tahtafm/apps/portofolio
+
+            echo "==> Fetching and resetting to latest origin/main"
+            git fetch origin
+            git reset --hard origin/main
             docker compose up --build -d
