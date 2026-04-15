@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tahta Failah Mubarak – Full-Stack Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1a1a2e;
+      --ink-mid: #2d3561;
+      --ink-soft: #5c6494;
+      --rule: #d0d5e8;
+      --bg: #f9f9fb;
+      --font: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 13.5px;
+      line-height: 1.65;
+    }
+
+    /* ── TOOLBAR ────────────────────────────────── */
+    #toolbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 32px;
+    }
+
+    #toolbar span {
+      color: rgba(255, 255, 255, .5);
+      font-size: 12px;
+    }
+
+    #btn-pdf {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--ink-mid);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 8px 18px;
+      font-family: var(--font);
+      font-size: 12.5px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background .2s;
+    }
+
+    #btn-pdf:hover {
+      background: #1a1f4a;
+    }
+
+    /* ── PAGE ───────────────────────────────────── */
+    #cv {
+      max-width: 780px;
+      margin: 64px auto 48px;
+      background: #fff;
+      padding: 52px 56px;
+      box-shadow: 0 2px 24px rgba(0, 0, 0, .07);
+    }
+
+    /* ── HEADER ─────────────────────────────────── */
+    .cv-name {
+      font-size: 1.9rem;
+      font-weight: 600;
+      letter-spacing: .02em;
+      color: var(--ink);
+      line-height: 1.1;
+    }
+
+    .cv-title {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-top: 5px;
+    }
+
+    .cv-contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px 16px;
+      margin-top: 10px;
+      font-size: 12.5px;
+      color: var(--ink-soft);
+    }
+
+    .cv-contacts a {
+      color: var(--ink-soft);
+      text-decoration: none;
+    }
+
+    .cv-contacts a:hover {
+      color: var(--ink-mid);
+      text-decoration: underline;
+    }
+
+    /* ── SECTION ────────────────────────────────── */
+    .section {
+      margin-top: 26px;
+    }
+
+    .section-title {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      padding-bottom: 5px;
+      border-bottom: 1.5px solid var(--ink-mid);
+      margin-bottom: 14px;
+    }
+
+    /* ── PROFILE ────────────────────────────────── */
+    .profile {
+      font-size: 13px;
+      color: #2a2a40;
+      line-height: 1.75;
+    }
+
+    /* ── JOB ────────────────────────────────────── */
+    .job {
+      border-bottom: 1px solid #eee;
+      padding-bottom: 14px;
+    }
+
+    .job:last-child {
+      border-bottom: none;
+    }
+
+    .job-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 2px;
+    }
+
+    .job-company {
+      font-weight: 600;
+      color: var(--ink);
+      font-size: 13.5px;
+    }
+
+    .job-period {
+      font-size: 12px;
+      color: var(--ink-soft);
+      white-space: nowrap;
+    }
+
+    .job-role {
+      font-size: 12px;
+      color: var(--ink-soft);
+      font-style: italic;
+      margin-bottom: 8px;
+    }
+
+    .job-items {
+      list-style: none;
+      padding: 0;
+    }
+
+    .job-items li {
+      position: relative;
+      padding-left: 14px;
+      margin-bottom: 6px;
+      font-size: 13px;
+      color: #2a2a40;
+    }
+
+    .job-items li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--ink-soft);
+    }
+
+    /* ── SKILLS ─────────────────────────────────── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 6px 12px;
+      font-size: 13px;
+    }
+
+    .skills-cat {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .skills-val {
+      color: #2a2a40;
+    }
+
+    /* ── EDUCATION ──────────────────────────────── */
+    .edu-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+    }
+
+    .edu-school {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .edu-period {
+      font-size: 12px;
+      color: var(--ink-soft);
+    }
+
+    .edu-degree {
+      font-size: 13px;
+      color: #2a2a40;
+      font-style: italic;
+    }
+
+    /* ── ADDITIONAL ─────────────────────────────── */
+    .add-grid {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 6px 12px;
+      font-size: 13px;
+    }
+
+    .add-label {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .add-val {
+      color: #2a2a40;
+    }
+
+    .add-val a {
+      color: #2a2a40;
+      text-decoration: none;
+    }
+
+    .add-val a:hover {
+      color: var(--ink-mid);
+      text-decoration: underline;
+    }
+
+    /* ── PRINT ──────────────────────────────────── */
+    @page {
+      margin: 16mm 14mm;
+      size: A4;
+    }
+
+    @media print {
+      #toolbar {
+        display: none !important;
+      }
+
+      body {
+        background: #fff;
+        font-size: 12.5px;
+      }
+
+      #cv {
+        margin: 0;
+        box-shadow: none;
+        padding: 36px 44px;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="toolbar">
+    <span>Tahta Failah Mubarak — CV</span>
+    <button id="btn-pdf" onclick="savePDF()">↓ &nbsp;Save as PDF</button>
+  </div>
+
+  <div id="cv">
+
+    <!-- HEADER -->
+    <div class="cv-name">TAHTA FAILAH MUBARAK</div>
+    <div class="cv-title">Full-Stack Developer / Software Engineer</div>
+    <div class="cv-contacts">
+      <span>Lumajang, East Java, Indonesia</span>
+      <span>•</span>
+      <a href="mailto:tahtafailah@gmail.com">tahtafailah@gmail.com</a>
+      <span>•</span>
+      <a href="tel:+6285707681288">+62 857-0768-1288</a>
+    </div>
+
+    <!-- PROFILE -->
+    <div class="section">
+      <div class="section-title">Profile</div>
+      <p class="profile">
+        Full-Stack Developer with 6+ years of experience building scalable and user-focused applications across ERP,
+        education, and enterprise domains. Experienced in delivering end-to-end solutions, from system design to
+        deployment, with a strong focus on performance, maintainability, and business alignment. Proven ability to adapt
+        to complex requirements and collaborate effectively within cross-functional teams.</p>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="section">
+      <div class="section-title">Employment History</div>
+
+      <div class="job">
+        <div class="job-top">
+          <span class="job-company">NUROSOFT IT CONSULTING</span>
+          <span class="job-period">Jan 2022 – Present</span>
+        </div>
+        <div class="job-role">Full-Stack Developer / Odoo Developer</div>
+        <ul class="job-items">
+
+          <li>
+            <strong>Web Automation Platform (Japanese Client):</strong> Contributed to the development of a web-based
+            automation system using FastAPI, GraphQL, and React, simplifying complex workflows through reliable backend
+            services and intuitive interfaces. Supported the implementation of webhook integrations using AWS Lambda and
+            Terraform to enable scalable, event-driven processes. Also applied unit testing practices to improve code
+            quality and minimize potential issues in future development.
+          </li>
+          <li>
+            <strong>Legacy Application Modernization (LibGDX):</strong> Led the upgrade of a legacy application
+            originally built in 2014 using LibGDX, adapting it to newer library versions and ensuring compatibility with
+            modern environments.
+          </li>
+          <li>
+            <strong>Custom Manufacturing ERP System:</strong> Developed a tailored ERP solution for manufacturing
+            processes using React and Express.js, ensuring alignment between system workflows and real-world
+            manufacturing processes.
+          </li>
+          <li>
+            <strong>Odoo 17.0 Technical Trainer – Manufacturing Company:</strong> Delivered hands-on ERP training to a
+            team of 10 participants, enabling them to confidently manage, customize, and extend the system based on
+            evolving business needs.
+          </li>
+          <li>
+            <strong>Educational SaaS Platform:</strong> Developed the backend of a subscription-based learning
+            platform using Express.js and contributed to frontend development with Vue.js, focusing on
+            RESTful API design and user experience.
+          </li>
+          <li>
+            <strong>Odoo 14.0 Customer Portal Revamp – Digital Infrastructure Company:</strong> Led the
+            decoupling of a legacy monolithic portal and rebuilt it using React and REST APIs, significantly
+            improving performance, scalability, and user experience.
+          </li>
+          <li>
+            <strong>Odoo 14.0 Enterprise Customization – Digital Infrastructure Company:</strong> Customized
+            Odoo 14.0 Enterprise to automate project management, CRM, accounting, and inventory processes,
+            enhancing operational efficiency across the organization.
+          </li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-top">
+          <span class="job-company">KREATINDO</span>
+          <span class="job-period">Sep 2023 – Feb 2024</span>
+        </div>
+        <div class="job-role">Full-Stack Developer (Freelance)</div>
+        <ul class="job-items">
+          <li>
+            <strong>Whistleblowing System:</strong> Designed and built a secure, end-to-end confidential
+            reporting platform using Next.js, Tailwind CSS, Express.js, and MySQL. Handled full-cycle
+            delivery including system integration, bug fixing, and post-launch maintenance.
+          </li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-top">
+          <span class="job-company">UMY – PT. UMAT MANDIRI BERKEMAJUAN (TECHNO CREATIVE)</span>
+          <span class="job-period">May 2018 – Dec 2021</span>
+        </div>
+        <div class="job-role">Full-Stack Developer</div>
+        <ul class="job-items">
+          <li>
+            <strong>Academic Web Applications:</strong> Developed full-stack academic portals using Laravel
+            for multiple university clients, covering lecturer management and student admissions. Customized
+            modules and interfaces to meet each institution's specific requirements.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="section">
+      <div class="section-title">Technical Skills</div>
+      <div class="skills-grid">
+        <span class="skills-cat">Backend</span>
+        <span class="skills-val">Node.js (Express), Python (FastAPI,Odoo, Vanilla), PHP (Laravel), Golang </span>
+
+        <span class="skills-cat">Database</span>
+        <span class="skills-val">MySQL, PostgreSQL, Redis</span>
+
+        <span class="skills-cat">Frontend</span>
+        <span class="skills-val">JavaScript, TypeScript, React.js, Next.js, Vue.js, Tailwind CSS</span>
+
+        <span class="skills-cat">Mobile (Learning) </span>
+        <span class="skills-val">Flutter, Kotlin</span>
+
+        <span class="skills-cat">Tools &amp; DevOps</span>
+        <span class="skills-val">Git, Docker, GitHub Actions, Jira, Slack, Notion </span>
+      </div>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="section">
+      <div class="section-title">Education</div>
+      <div class="edu-top">
+        <span class="edu-school">Universitas Terbuka (Open University of Indonesia)</span>
+        <span class="edu-period">2020 – 2024</span>
+      </div>
+      <div class="edu-degree">Bachelor of Information Systems</div>
+    </div>
+
+    <!-- ADDITIONAL -->
+    <div class="section">
+      <div class="section-title">Additional Information</div>
+      <div class="add-grid">
+        <span class="add-label">Methodologies</span>
+        <span class="add-val">Scrum, Agile, SDLC</span>
+
+        <span class="add-label">Specializations</span>
+        <span class="add-val">ERP Implementation, Full-Stack Development, API Integration</span>
+
+        <span class="add-label">Languages</span>
+        <span class="add-val">Indonesian (Native), English (Professional Reading &amp; Writing)</span>
+
+        <span class="add-label">LinkedIn</span>
+        <span class="add-val"><a href="https://linkedin.com/in/tahta-failah-mubarak"
+            target="_blank">linkedin.com/in/tahta-failah-mubarak</a></span>
+
+        <span class="add-label">GitHub</span>
+        <span class="add-val"><a href="https://github.com/tahtafm" target="_blank">github.com/tahtafm</a></span>
+
+        <span class="add-label">Website</span>
+        <span class="add-val"><a href="https://tahtafm.xyz" target="_blank">tahtafm.xyz</a></span>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function savePDF() {
+      const btn = document.getElementById('btn-pdf');
+      btn.textContent = 'Opening print dialog…';
+      btn.disabled = true;
+      setTimeout(() => {
+        window.print();
+        btn.textContent = '↓  Save as PDF';
+        btn.disabled = false;
+      }, 100);
+    }
+  </script>
+
+</body>
+
+</html>

@@ -8,6 +8,7 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
+import SnowParticles from './components/SnowParticles';
 import './App.css';
 
 function App() {
@@ -40,6 +41,9 @@ function App() {
     <ThemeProvider>
       <ParallaxProvider>
         <div className="min-h-screen bg-background text-foreground parallax-container relative">
+          {/* Background Particles */}
+          <SnowParticles />
+
           {/* Floating Menu */}
           <FloatingMenu 
             activeSection={activeSection} 

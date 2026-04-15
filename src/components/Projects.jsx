@@ -15,81 +15,93 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: "Web Automation App Development",
+      title: "Web Automation Platform",
       category: "fullstack",
-      description:
-        "Contributed to the development of a web-based automation platform for a Japanese company using FastAPI, GraphQL, and React. Involved in building scalable backend services, designing GraphQL APIs, and developing responsive user interfaces to streamline and automate business workflows.",
-      technologies: ["FastAPI", "GraphQL", "React", "PostgreSQL", "Docker", "3rd Party APIs"],
+      description: "Contributed to the development of a web-based automation system for a Japanese client using FastAPI, GraphQL, and React, simplifying complex workflows through reliable backend services. Supported webhook integrations using AWS Lambda and Terraform.",
+      technologies: ["FastAPI", "GraphQL", "React", "AWS Lambda", "Terraform"],
       image: "/api/placeholder/400/300",
-      liveUrl: null,
-      githubUrl: null,
       featured: true,
-      type: "Automation Platform",
+      type: "Nurosoft IT Consulting",
     },
     {
       id: 2,
-      title: "Odoo 17.0 Technical Training",
+      title: "Legacy Application Modernization",
       category: "backend",
-      description:
-        "Provided technical training to the IT team of a manufacturing company on ERP development using Odoo 17. Covered essential core modules and hands-on customization relevant to manufacturing processes.",
-      technologies: ["Odoo 17", "Python", "PostgreSQL"],
+      description: "Upgraded a legacy application to work with newer technologies and environments, improving stability and ensuring it continues to meet current needs.",
+      technologies: ["LibGDX", "Java"],
       image: "/api/placeholder/400/300",
-      liveUrl: null,
-      githubUrl: null,
       featured: false,
-      type: "Odoo Technical Training",
+      type: "Nurosoft IT Consulting",
     },
     {
       id: 3,
-      title: "Whistleblowing System Development",
+      title: "Custom Manufacturing ERP System",
       category: "fullstack",
-      description:
-        "Built a confidential reporting platform using Next.js, Tailwind CSS, Express.js, and MySQL. Managed both frontend and backend, handled secure submission processes, integration, bug fixing, and maintenance throughout the project lifecycle.",
-      technologies: ["Next.js", "Express.js", "Tailwind CSS", "MySQL"],
+      description: "Built a custom ERP system for a manufacturing company to help manage production, inventory, and daily operations in one place. Focused on aligning the system with real workflows, making it easier for teams to use and maintain.",
+      technologies: ["React", "Express.js", "Node.js"],
       image: "/api/placeholder/400/300",
-      liveUrl: null,
-      githubUrl: null,
-      featured: false,
-      type: "Web Application",
+      featured: true,
+      type: "Nurosoft IT Consulting",
     },
     {
       id: 4,
-      title: "Customer Portal Revamp",
-      category: "frontend",
-      description:
-        "Led the redevelopment of a customer-facing portal previously built in monolithic Odoo for a digital infrastructure company. Rebuilt using React and REST APIs to significantly improve performance, scalability, and user experience.",
-      technologies: ["React", "JavaScript", "REST API", "Tailwind CSS"],
+      title: "Odoo 17.0 Technical Training",
+      category: "backend",
+      description: "Delivered hands-on ERP training to a team of 10 participants, enabling them to confidently manage, customize, and extend the system based on evolving business needs for a manufacturing company.",
+      technologies: ["Odoo 17.0", "Python", "PostgreSQL"],
       image: "/api/placeholder/400/300",
-      liveUrl: null,
-      githubUrl: null,
       featured: false,
-      type: "Frontend Migration",
+      type: "Nurosoft IT Consulting",
     },
     {
       id: 5,
-      title: "Odoo 14.0 Enterprise Customization",
-      category: "backend",
-      description:
-        "Customized Odoo 14.0 Enterprise for a digital infrastructure company to automate business processes including project management, CRM, accounting, and inventory. Delivered scalable and modular solutions tailored to operational needs.",
-      technologies: ["Odoo 14", "Python", "PostgreSQL", "XML"],
+      title: "Educational SaaS Platform",
+      category: "fullstack",
+      description: "Developed the backend of a subscription-based learning platform using Express.js and contributed to frontend development with Vue.js, focusing on RESTful API design and user experience.",
+      technologies: ["Express.js", "Vue.js", "Node.js", "REST API"],
       image: "/api/placeholder/400/300",
-      liveUrl: null,
-      githubUrl: null,
       featured: false,
-      type: "ERP Implementation",
+      type: "Nurosoft IT Consulting",
     },
     {
       id: 6,
-      title: "Academic Web Application Development",
-      category: "fullstack",
-      description:
-        "Developed full-stack academic portals using Laravel for lecturer and student admissions across multiple universities. Customized modules, user interfaces, and role-based access features to match each institution’s needs.",
-      technologies: ["Laravel", "MySQL", "Bootstrap", "Blade"],
+      title: "Odoo 14.0 Customer Portal Revamp",
+      category: "frontend",
+      description: "Led the decoupling of a legacy monolithic portal and rebuilt it using React and REST APIs for a digital infrastructure company, significantly improving performance, scalability, and UX.",
+      technologies: ["React", "REST API", "Odoo"],
       image: "/api/placeholder/400/300",
-      liveUrl: null,
-      githubUrl: null,
       featured: false,
-      type: "Academic Portal",
+      type: "Nurosoft IT Consulting",
+    },
+    {
+      id: 7,
+      title: "Odoo 14.0 Enterprise Customization",
+      category: "backend",
+      description: "Customized Odoo 14.0 Enterprise for a digital infrastructure company to automate project management, CRM, accounting, and inventory processes, enhancing operational efficiency.",
+      technologies: ["Odoo 14.0", "Python", "PostgreSQL"],
+      image: "/api/placeholder/400/300",
+      featured: false,
+      type: "Nurosoft IT Consulting",
+    },
+    {
+      id: 8,
+      title: "Whistleblowing System",
+      category: "fullstack",
+      description: "Designed and built a secure, end-to-end confidential reporting platform using Next.js, Tailwind CSS, Express.js, and MySQL. Handled full-cycle delivery including system integration and bug fixing.",
+      technologies: ["Next.js", "Tailwind CSS", "Express.js", "MySQL"],
+      image: "/api/placeholder/400/300",
+      featured: true,
+      type: "Kreatindo",
+    },
+    {
+      id: 9,
+      title: "Academic Web Applications",
+      category: "fullstack",
+      description: "Developed full-stack academic portals using Laravel for multiple university clients, covering lecturer management and student admissions. Customized modules and interfaces.",
+      technologies: ["Laravel", "MySQL", "PHP"],
+      image: "/api/placeholder/400/300",
+      featured: false,
+      type: "UMY (Techno Creative)",
     },
   ];
 
@@ -146,11 +158,10 @@ const Projects = () => {
               <button
                 key={filterItem.id}
                 onClick={() => setFilter(filterItem.id)}
-                className={`px-6 py-3 rounded-full transition-all duration-300 ${
-                  filter === filterItem.id
-                    ? 'bg-primary text-primary-foreground shadow-lg'
-                    : 'bg-card text-card-foreground hover:bg-accent border border-border'
-                }`}
+                className={`px-6 py-3 rounded-full transition-all duration-300 ${filter === filterItem.id
+                  ? 'bg-primary text-primary-foreground shadow-lg'
+                  : 'bg-card text-card-foreground hover:bg-accent border border-border'
+                  }`}
               >
                 {filterItem.label}
               </button>
@@ -199,9 +210,8 @@ const Projects = () => {
 
                 {/* Expandable Description */}
                 <p
-                  className={`text-muted-foreground mb-2 transition-all ${
-                    expandedId === project.id ? '' : 'line-clamp-3'
-                  }`}
+                  className={`text-muted-foreground mb-2 transition-all ${expandedId === project.id ? '' : 'line-clamp-3'
+                    }`}
                 >
                   {project.description}
                 </p>

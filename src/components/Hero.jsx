@@ -106,11 +106,12 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.8 }}
             className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed"
           >
-            I specialize in building scalable and efficient applications with a strong focus on backend technologies like Odoo, FastAPI, and Node.js. While my main expertise lies in backend development, I also enjoy collaborating on frontend work using tools like ReactJS and NextJS to deliver complete and functional solutions.
+            Full-Stack Developer who enjoys turning complex problems into simple, working solutions.<br />
+            Building web applications that help businesses run more efficiently.
           </motion.p>
 
-                    {/* CTA Buttons with Enhanced Framer Motion Animation */}
-                    <motion.div
+          {/* CTA Buttons with Enhanced Framer Motion Animation */}
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1 }}
@@ -148,7 +149,7 @@ const Hero = () => {
                 )}
               </Button>
             </motion.div>
-            
+
             <motion.div
               className="relative"
               whileHover={{ scale: 1.05 }}
@@ -184,7 +185,7 @@ const Hero = () => {
             className="flex justify-center gap-6 mb-16"
           >
             {[
-              { icon: Github, href: 'https://github.com/Eto02', label: 'GitHub' },
+              { icon: Github, href: 'https://github.com/tahtafm', label: 'GitHub' },
               { icon: Linkedin, href: 'https://www.linkedin.com/in/tahta-failah-mubarak/', label: 'LinkedIn' },
               { icon: Mail, href: 'mailto:tahtafailah@gmail.com', label: 'Email' },
             ].map((social, index) => (
@@ -193,8 +194,8 @@ const Hero = () => {
                 href={social.href}
                 target="_blank"
                 className="p-3 rounded-full bg-card border border-border text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300"
-                whileHover={{ 
-                  scale: 1.1, 
+                whileHover={{
+                  scale: 1.1,
                   y: -2,
                   boxShadow: "0 10px 25px rgba(0,0,0,0.1)"
                 }}

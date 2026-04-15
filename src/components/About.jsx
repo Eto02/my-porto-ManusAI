@@ -73,7 +73,7 @@ const About = () => {
                     <Code size={80} className="text-white" />
                   </div>
                 </div>
-                
+
                 {/* Floating Elements */}
                 <motion.div
                   className="absolute -top-4 -right-4 bg-card border border-border rounded-2xl p-4 shadow-lg"
@@ -82,7 +82,7 @@ const About = () => {
                 >
                   <Zap className="text-primary" size={24} />
                 </motion.div>
-                
+
                 <motion.div
                   className="absolute -bottom-4 -left-4 bg-card border border-border rounded-2xl p-4 shadow-lg"
                   animate={{ y: [0, 10, 0] }}
@@ -101,32 +101,41 @@ const About = () => {
 
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  I'm a Full-Stack Developer based in Lumajang, Indonesia, with over 6 years of experience
-                  in building scalable web applications and enterprise systems. I’ve worked with a wide range
-                  of clients — from universities to Japanese corporations — helping them turn ideas into 
-                  practical and maintainable solutions.
+                  I’m a Full-Stack Developer with 6+ years of experience working on ERP systems, automation platforms, and enterprise applications.
+                </p>
+                <p>
+                  Most of my work revolves around building systems that are not only functional, but also scalable and easy to maintain. I’ve worked across backend and frontend, helping teams turn complex business requirements into practical solutions.
+                </p>
+                <p>
+                  I enjoy working on problems that require both technical thinking and understanding how a business actually works.
+                </p>
+                <p>
+                  Outside of work, I’m currently exploring mobile development and continuing to improve how I design and build systems.
                 </p>
 
-                <p>
-                  Most of my work revolves around backend architecture, REST/GraphQL APIs, and frontend
-                  development using modern frameworks like React and Vue. I'm also experienced in ERP customization
-                  using Odoo, which has deepened my understanding of how software supports business workflows.
-                </p>
 
-                <p>
-                  I believe good code is not just about clever solutions — it's about clarity, reliability,
-                  and being kind to the next developer (including your future self).
-                </p>
+              </div>
+
+              {/* Education */}
+              <div className="pt-6">
+                <h4 className="text-lg font-semibold mb-4">Education</h4>
+                <div className="bg-card/30 border border-border rounded-xl p-4">
+                  <div className="flex justify-between items-start flex-wrap gap-2 mb-1">
+                    <span className="font-semibold text-foreground">Universitas Terbuka (Open University of Indonesia)</span>
+                    <span className="text-sm text-muted-foreground whitespace-nowrap">2020 – 2024</span>
+                  </div>
+                  <p className="text-muted-foreground">Bachelor of Information Systems</p>
+                </div>
               </div>
 
               {/* Skills Preview */}
               <div className="pt-6">
                 <h4 className="text-lg font-semibold mb-4">Core Technologies</h4>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-3 text-foreground">
                   {['React', 'Next.js', 'TypeScript', 'Node.js', 'Python', 'PostgreSQL'].map((tech, index) => (
                     <motion.span
                       key={tech}
-                      className="px-4 py-2 bg-accent/10 text-accent-foreground rounded-full text-sm font-medium border border-accent/20"
+                      className="px-4 py-2 bg-accent/10 text-foreground rounded-full text-sm font-medium border border-accent/20"
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                       transition={{ duration: 0.3, delay: 1 + index * 0.1 }}

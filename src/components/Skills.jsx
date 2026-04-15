@@ -1,10 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import {
-  Database,
+ import { Database,
   MonitorSmartphone,
   TerminalSquare,
+  Server,
+  Smartphone,
+  Wrench,
 } from 'lucide-react';
 
 const Skills = () => {
@@ -15,26 +17,34 @@ const Skills = () => {
 
   const skillCategories = [
     {
-      title: 'Backend Development',
-      icon: Database,
+      title: 'Backend',
+      icon: Server,
       color: 'from-[#52ab98] to-[#2b6777]',
-      skills: [
-        'Python', 'Odoo', 'FastAPI', 'Laravel', 'ExpressJS',
-        'Golang', 'REST API', 'GraphQL', 'Redis',
-        'MySQL', 'PostgreSQL'
-      ],
+      skills: ['Node.js (Express)', 'Python (FastAPI, Odoo, Vanilla)', 'PHP (Laravel)', 'Golang'],
     },
     {
-      title: 'Frontend Development',
+      title: 'Database',
+      icon: Database,
+      color: 'from-[#8e44ad] to-[#9b59b6]',
+      skills: ['MySQL', 'PostgreSQL', 'Redis'],
+    },
+    {
+      title: 'Frontend',
       icon: MonitorSmartphone,
       color: 'from-[#6c8ead] to-[#c8d8e4]',
-      skills: ['JavaScript', 'TypeScript', 'ReactJS', 'NextJS', 'VueJS'],
+      skills: ['JavaScript', 'TypeScript', 'React.js', 'Next.js', 'Vue.js', 'Tailwind CSS'],
     },
     {
-      title: 'Tools & Platforms',
-      icon: TerminalSquare,
+      title: 'Mobile (Learning)',
+      icon: Smartphone,
+      color: 'from-[#f39c12] to-[#f1c40f]',
+      skills: ['Flutter', 'Kotlin'],
+    },
+    {
+      title: 'Tools & DevOps',
+      icon: Wrench,
       color: 'from-[#3e5562] to-[#a4b0be]',
-      skills: ['Git', 'GitHub Actions', 'Jira', 'Slack', 'Notion', 'Docker'],
+      skills: ['Git', 'Docker', 'GitHub Actions', 'Jira', 'Slack', 'Notion'],
     },
   ];
 
