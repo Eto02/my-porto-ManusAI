@@ -185,7 +185,7 @@ const Hero = () => {
             className="flex justify-center gap-6 mb-16"
           >
             {[
-              { icon: Github, href: 'https://github.com/tahtafm', label: 'GitHub' },
+              { icon: Github, href: 'https://github.com/Eto02', label: 'GitHub' },
               { icon: Linkedin, href: 'https://www.linkedin.com/in/tahta-failah-mubarak/', label: 'LinkedIn' },
               { icon: Mail, href: 'mailto:tahtafailah@gmail.com', label: 'Email' },
             ].map((social, index) => (

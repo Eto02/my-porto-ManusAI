@@ -31,8 +31,19 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    const { name, email, subject, message } = formData;
+
+    // Construct email body
+    const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+
+    // Create mailto link
+    const mailtoLink = `mailto:tahtafailah@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    // Open default mail client
+    window.location.href = mailtoLink;
+
+    // Simulate small delay for UI effect
+    await new Promise(resolve => setTimeout(resolve, 800));
 
     // Reset form
     setFormData({
@@ -42,8 +53,6 @@ const Contact = () => {
       message: '',
     });
     setIsSubmitting(false);
-
-    alert('Message sent successfully!');
   };
 
   const contactInfo = [
@@ -71,7 +80,7 @@ const Contact = () => {
     {
       icon: Github,
       label: 'GitHub',
-      href: 'https://github.com/tahtafm',
+      href: 'https://github.com/Eto02',
       color: 'hover:text-gray-900 dark:hover:text-white',
     },
     {

@@ -68,12 +68,10 @@ const About = () => {
             <motion.div variants={itemVariants} className="relative">
               <div className="relative">
                 {/* Placeholder for profile image */}
-                <div className="w-full max-w-md mx-auto aspect-square bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl flex items-center justify-center overflow-hidden">
-                  <img
-                    src="/profile.png"
-                    alt="Tahta Failah Mubarak"
-                    className="w-full h-full object-cover relative z-10 transition-transform duration-700 group-hover:scale-105"
-                  />
+                <div className="w-full max-w-md mx-auto aspect-square bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl flex items-center justify-center">
+                  <div className="w-3/4 h-3/4 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center">
+                    <Code size={80} className="text-white" />
+                  </div>
                 </div>
 
                 {/* Floating Elements */}
